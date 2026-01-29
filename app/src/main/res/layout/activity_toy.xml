@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etName"
+        android:id="@+id/etToyName"
         android:layout_width="262dp"
         android:layout_height="46dp"
         android:layout_marginTop="20dp"
@@ -31,10 +31,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivImage" />
+        app:layout_constraintTop_toBottomOf="@+id/ivToy" />
 
     <EditText
-        android:id="@+id/etDescription"
+        android:id="@+id/etToyDescription"
         android:layout_width="262dp"
         android:layout_height="46dp"
         android:layout_marginTop="20dp"
@@ -44,10 +44,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+        app:layout_constraintTop_toBottomOf="@+id/etToyName" />
 
     <EditText
-        android:id="@+id/etPrice"
+        android:id="@+id/etToyPrice"
         android:layout_width="262dp"
         android:layout_height="46dp"
         android:layout_marginTop="8dp"
@@ -56,10 +56,10 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/spnToyCategory" />
 
     <EditText
-        android:id="@+id/etQuantity"
+        android:id="@+id/etToyQuantity"
         android:layout_width="262dp"
         android:layout_height="46dp"
         android:layout_marginTop="12dp"
@@ -68,7 +68,7 @@
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPrice" />
+        app:layout_constraintTop_toBottomOf="@+id/etToyPrice" />
 
     <EditText
         android:id="@+id/etDesignDate"
@@ -81,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etQuantity" />
+        app:layout_constraintTop_toBottomOf="@+id/etToyQuantity" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCancel"
@@ -112,7 +112,7 @@
         app:rippleColor="#CDDC39" />
 
     <Spinner
-        android:id="@+id/spinnerCategory"
+        android:id="@+id/spnToyCategory"
         android:layout_width="262dp"
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
@@ -121,10 +121,10 @@
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/etToyDescription" />
 
     <ImageView
-        android:id="@+id/ivImage"
+        android:id="@+id/ivToy"
         android:layout_width="168dp"
         android:layout_height="152dp"
         android:layout_marginTop="20dp"
@@ -141,14 +141,14 @@
         android:layout_marginStart="12dp"
         android:layout_marginBottom="20dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/etName"
+        app:layout_constraintBottom_toTopOf="@+id/etToyName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/ivImage"
+        app:layout_constraintStart_toEndOf="@+id/ivToy"
         app:srcCompat="@drawable/pencil" />
 
     <ImageButton
-        android:id="@+id/ibCalender"
+        android:id="@+id/ivDesignDate"
         android:layout_width="45dp"
         android:layout_height="42dp"
         android:layout_gravity="bottom|end"
@@ -158,7 +158,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toEndOf="@+id/etDesignDate"
-        app:layout_constraintTop_toBottomOf="@+id/etQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/etToyQuantity"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/calendar" />
 

@@ -290,7 +290,7 @@ public abstract class BaseListActivity<T extends BaseEntity & IHasNameAndPicture
         clEdit.setVisibility(View.GONE);
 
         ivName    = findViewById(R.id.ivName);
-        etName    = findViewById(R.id.etName);
+        etName    = findViewById(R.id.etToyName);
         btnOk     = findViewById(R.id.btnOk);
         btnCancel = findViewById(R.id.btnCancel);
         rvList    = findViewById(R.id.rvList);

@@ -16,21 +16,65 @@ public class Toy extends BaseEntity implements Serializable
     private long designDate;  // long התנהלות נכונה יותר מול
     //     מסד הנתונים
 
-    public Toy(){}
-    public void SetName(String name) {this.name = name;}
-    public String GetName() {return name;}
-    public void SetDescription(String description) {this.description = description;}
-    public String GetDescription() {return description;}
-    public void SetImage(String image) {this.image = image;}
-    public String GetImage() {return image;}
-    public void SetPrice(double price) {this.price = price;}
-    public double GetPrice() {return price;}
-    public void SetQuantity(int quantity) {this.quantity = quantity;}
-    public int GetQuantity() {return quantity;}
-    public void SetCategoryId(String categoryId) {this.categoryId = categoryId;}
-    public String GetCategoryId() {return categoryId;}
-    public void SetDesignDate(long designDate) {this.designDate = designDate;}
-    public long GetDesignDate() {return designDate;}
+
+    public Toy() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public long getDesignDate() {
+        return designDate;
+    }
+
+    public void setDesignDate(long designDate) {
+        this.designDate = designDate;
+    }
 
     //letaken
     @Override
