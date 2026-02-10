@@ -24,6 +24,9 @@
         android:theme="@style/Theme.TASHTIT"
         tools:targetApi="31">
         <activity
+            android:name=".ACTIVITIES.MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".ACTIVITIES.ToyActivity"
             android:exported="false" />
         <activity

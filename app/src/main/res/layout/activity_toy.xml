@@ -162,4 +162,13 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/calendar" />
 
+    <ImageView
+        android:id="@+id/ivError"
+        android:layout_width="35dp"
+        android:layout_height="22dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/ibPencil"
+        app:layout_constraintTop_toTopOf="@+id/ibPencil"
+        app:srcCompat="@drawable/error_1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

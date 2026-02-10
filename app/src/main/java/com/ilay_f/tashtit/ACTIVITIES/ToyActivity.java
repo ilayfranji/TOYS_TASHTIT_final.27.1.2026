@@ -49,6 +49,7 @@ public class ToyActivity extends BaseActivity implements EntryValidation {
     private Spinner spnToyCategory;
     private ImageButton ivPencil, ivDesignDate;
     private ImageView ivToy;
+    private ImageView ivError;
     private Bitmap toyBitmap;
     private LauncherHelper launcherHelper;
     private  ToysViewModel toyViewModel;
@@ -156,8 +157,8 @@ public class ToyActivity extends BaseActivity implements EntryValidation {
                 toy.setPrice(Double.parseDouble(etToyPrice.getText().toString()));
                 toy.setQuantity(Integer.parseInt(etToyQuantity.getText().toString()));
                 toy.setDesignDate(DateUtil.stringToLong(etDesignDate.getText().toString(), "dd/MM/yyyy"));
-                if (oldToy != null)
-                    toy.setIdFs(oldToy.getIdFs());
+                //if (oldToy != null)
+                //    toy.setIdFs(oldToy.getIdFs());
                 showProgressDialog("Save", "Saving " + toy.getName() + "...");
                 toyViewModel.save(toy);
                 finish();
@@ -223,8 +224,7 @@ public class ToyActivity extends BaseActivity implements EntryValidation {
                     "Wrong design date",
                     LocalDate.now().minusYears(100), LocalDate.now()));
         }
-        Validator.add(new ImageRule(ivToy, () -> toyBitmap,
-                "Please select an image", ivError));
+        Validator.add(new ImageRule(ivToy, () -> toyBitmap, "Please select an image", ivError));
     }
 
     // ביצוע הבדיקה עצמה
