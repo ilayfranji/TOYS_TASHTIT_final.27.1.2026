@@ -294,7 +294,7 @@ public abstract class BaseListActivity<T extends BaseEntity & IHasNameAndPicture
         btnOk     = findViewById(R.id.btnOk);
         btnCancel = findViewById(R.id.btnCancel);
         rvList    = findViewById(R.id.rvList);
-        btnAdd    = findViewById(R.id.fabAdd);
+        btnAdd    = findViewById(R.id.fab);
 
 
         // Set picture input visibility based on config

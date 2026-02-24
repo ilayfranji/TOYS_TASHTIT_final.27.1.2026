@@ -164,6 +164,8 @@ public class ToyActivity extends BaseActivity implements EntryValidation {
                 finish();
             }
         });
+
+        btnCancel.setOnClickListener(v -> finish());
     }
 
     @Override

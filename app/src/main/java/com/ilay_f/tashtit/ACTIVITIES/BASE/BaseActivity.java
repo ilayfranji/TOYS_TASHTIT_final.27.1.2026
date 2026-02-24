@@ -19,6 +19,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.ilay_f.tashtit.ACTIVITIES.ToysActivity;
 import com.ilay_f.tashtit.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -84,7 +85,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                     navigateToActivity(MainActivity.class);
                 }
                 else if(itemId == R.id.navigation_cities){
-                    navigateToActivity(null);
+                    navigateToActivity(ToysActivity.class);
                 }
                 else if(itemId == R.id.navigation_categories){
                     navigateToActivity(CategoriesActivity.class);

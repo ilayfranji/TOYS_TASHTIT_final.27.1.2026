@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "TOYS_TASHTIT"
+rootProject.name = "English Kingdom"
 include(":app")
 include(":HELPER")
 include(":MODEL")

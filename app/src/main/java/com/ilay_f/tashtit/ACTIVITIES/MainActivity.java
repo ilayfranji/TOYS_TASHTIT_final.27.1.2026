@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void displayUpdateDate() {
-        tvUpdateDate = findViewById(R.id.tvUpdateDate);
+        tvUpdateDate = findViewById(R.id.tvWelcome);
         tvUpdateDate.setText("Update: " + updateDate);
     }
 

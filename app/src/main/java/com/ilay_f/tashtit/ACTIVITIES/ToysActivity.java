@@ -44,19 +44,18 @@ public class ToysActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_toys);
-
         initializeActivity();
     }
 
     protected  void initializeActivity(){
         initializeViews();
-        setViewModel();
         setRecyclerView();
+        setViewModel();
     }
 
     protected  void initializeViews(){
-        rvToys = findViewById(R.id.toysRecycleView);
-        fabAdd = findViewById(R.id.fabAdd);
+        rvToys = findViewById(R.id.rvToys);
+        fabAdd = findViewById(R.id.fab);
 
         setListeners();
     }
@@ -76,6 +75,7 @@ public class ToysActivity extends BaseActivity {
         toysViewModel.getAll();
 
     }
+
 
 
     private void setRecyclerView() {
@@ -111,8 +111,8 @@ public class ToysActivity extends BaseActivity {
                     ((TextView) holder.getView("tvQuantity")).setText(String.valueOf(item.getQuantity()));
 
                     ((TextView) holder.getView("tvDate")).setText(DateUtil.longToString(item.getDesignDate(), DateUtil.FORMAT_DD_MM_YYYY));
-                })
-        );
+                }));
+
 
         rvToys.setAdapter(toysAdapter);
         rvToys.setLayoutManager(new LinearLayoutManager(this));
@@ -158,6 +158,8 @@ public class ToysActivity extends BaseActivity {
                 );
             }
         });
+
+        rvToys.setAdapter(toysAdapter);
         // הגדרת ה-Helper שאחראי על זיהוי מחוות המגע (החלקה שמאלה)
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new
                 SwipeCallback<Toy>(toysAdapter,
