@@ -3,8 +3,9 @@ package com.ilay_f.model;
 import com.ilay_f.model.BASE.BaseEntity;
 
 import java.io.Serializable;
+import java.util.Objects;
 
-public class User extends BaseEntity implements Serializable {
+public class User extends BaseEntity implements Serializable {//סריאלייזבל מאפשר לילהעביר נתונים מאקטיביטי לאקטיביטי ( מעביר אותם כסטרינגים בין המסכים )
     private String idFs;//איי די ייחודי לכל משתמש שישמר בפייר סטור
     private String userName;
     private String email;
@@ -70,5 +71,17 @@ public class User extends BaseEntity implements Serializable {
 
     public void setUserType(UserType userType) {
         this.userType = userType;
+    }
+
+    public enum UserType{
+        GUEST,REGISTERED,ADMIN
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        User user = (User) o;
+        return Objects.equals(idFs, user.idFs) && Objects.equals(userName, user.userName) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(image, user.image) && userType == user.userType;
     }
 }

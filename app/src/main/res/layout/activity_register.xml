@@ -21,16 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivProfilePicture"
-        android:layout_width="165dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvRegisterTitle"
-        app:layout_constraintStart_toStartOf="@+id/tvRegisterTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvRegisterTitle"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <EditText
         android:id="@+id/etName"
         android:layout_width="wrap_content"
@@ -39,10 +29,10 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/ivProfilePicture"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/ivProfilePicture"
-        app:layout_constraintTop_toBottomOf="@+id/ivProfilePicture" />
+        app:layout_constraintEnd_toEndOf="@+id/ivdefaultProfilePicture"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/ivdefaultProfilePicture"
+        app:layout_constraintTop_toBottomOf="@+id/ivdefaultProfilePicture" />
 
     <EditText
         android:id="@+id/etRegisterEmail"
@@ -103,4 +93,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnSave"
         app:layout_constraintTop_toBottomOf="@+id/etRegisterPassword" />
+
+    <ImageView
+        android:id="@+id/ivdefaultProfilePicture"
+        android:layout_width="135dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvRegisterTitle"
+        app:layout_constraintStart_toStartOf="@+id/tvRegisterTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvRegisterTitle"
+        app:srcCompat="@drawable/default_profile_picture" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
