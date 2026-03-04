@@ -75,7 +75,7 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRegisterPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etRegisterConfirmPassword" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCancel"
@@ -91,8 +91,9 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
         app:layout_constraintStart_toEndOf="@+id/btnSave"
-        app:layout_constraintTop_toBottomOf="@+id/etRegisterPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etRegisterConfirmPassword" />
 
     <ImageView
         android:id="@+id/ivdefaultProfilePicture"
@@ -103,5 +104,17 @@
         app:layout_constraintStart_toStartOf="@+id/tvRegisterTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvRegisterTitle"
         app:srcCompat="@drawable/default_profile_picture" />
+
+    <EditText
+        android:id="@+id/etRegisterConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/etRegisterPassword"
+        app:layout_constraintStart_toStartOf="@+id/etRegisterPassword"
+        app:layout_constraintTop_toBottomOf="@+id/etRegisterPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
