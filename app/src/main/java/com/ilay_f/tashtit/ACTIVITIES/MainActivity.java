@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ilay_f.helper.LoginPreference;
+import com.ilay_f.helper.StringUtil;
 import com.ilay_f.helper.inputValidators.CompareRule;
 import com.ilay_f.helper.inputValidators.EmailRule;
 import com.ilay_f.helper.inputValidators.EntryValidation;
@@ -51,17 +53,36 @@ public class MainActivity extends BaseActivity implements EntryValidation {
         EdgeToEdge.enable(this);
         //setContentView(R.layout.activity_main);
         //getLayoutInflater().inflate(R.layout.activity_main, findViewById(R.id.content_frame));
-        setLayout(R.layout.activity_main);
+        //setLayout(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        initializeActivity();
+        //initializeActivity();
+        setViewModel();
+        autoLogin();
     }
 
-
+    private void autoLogin(){
+        //בדיקה אם יש נתוני משתמש שמורים בטלפון
+        //אם כן
+        //שלוף את נתוני הכניסה
+        //בצע לוג אין
+        String email = new LoginPreference(this).getEmail();
+        String password = new LoginPreference(this).getPassword();
+        if(!StringUtil.isNullOrEmpty(email)&& !StringUtil.isNullOrEmpty(password)){
+            viewModel.login(email,password);
+        }
+        //אם לא
+        //להציג את האקטיביטי SetLayout
+        //initializeActivity
+        else{
+            setLayout(R.layout.activity_main);
+            initializeActivity();
+        }
+    }
     @Override
     protected void initializeActivity() {
         initializeViews();
@@ -90,7 +111,13 @@ public class MainActivity extends BaseActivity implements EntryValidation {
     protected void setListeners() {
         btnLogIn.setOnClickListener(v -> {
             if(validate()){
-                viewModel.login(etEmail.getText().toString(), etPassword.getText().toString());
+                String email = etEmail.getText().toString();
+                String password = etPassword.getText().toString();
+                viewModel.login(email , password);
+
+                if(cbRememberMe.isActivated()){
+                    new LoginPreference(this).saveLoginCredentials(email,password);
+                }
             }
 
         });
@@ -98,7 +125,8 @@ public class MainActivity extends BaseActivity implements EntryValidation {
             startActivity(new Intent(this, RegisterActivity.class));
         });
         tvContinueAsGuest.setOnClickListener(v -> {
-
+            startActivity(new Intent(MainActivity.this, MembersActivity.class));
+            Toast.makeText(MainActivity.this, "Hello Guest!", Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -110,10 +138,12 @@ public class MainActivity extends BaseActivity implements EntryValidation {
             @Override
             public void onChanged(User user) {
                 if(user==null) {
-                    Toast.makeText(MainActivity.this, "Login succeed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Login succeed", Toast.LENGTH_SHORT).show();
+                    BaseActivity.currentUser = user;
+                    startActivity(new Intent(MainActivity.this, MembersActivity.class));
                 }
             }
         });
@@ -121,9 +151,9 @@ public class MainActivity extends BaseActivity implements EntryValidation {
 
     @Override
     public void setValidation() {//פעולה שמחייבת להכניס נתונים לשדות שחייבים להיות בהם נתונים
+        Validator.clear();
         Validator.add(new Rule(etEmail, RuleOperation.REQUIRED,"Email is required"));
         Validator.add(new Rule(etPassword, RuleOperation.REQUIRED,"Password is required"));
-
         Validator.add(new EmailRule(etEmail, RuleOperation.TEXT,"Email is not valid"));
         Validator.add(new PasswordRule(etPassword, RuleOperation.TEXT,"Password is not valid"));
     }
